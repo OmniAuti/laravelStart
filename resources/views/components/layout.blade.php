@@ -14,9 +14,7 @@
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
 
                     <main class="mt-6">
-                    
                         <?= $slot ?>
-                   
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
