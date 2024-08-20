@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     </head>
     <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-
+                    <x-nav></x-nav>
                     <main class="mt-6">
                         <?= $slot ?>
                     </main>

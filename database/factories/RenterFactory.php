@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Renter;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Renter>
  */
-class PostFactory extends Factory
+class RenterFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +17,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'renter_id' => Renter::factory(),
-            'address' => fake()->address(),
-            'rating' => fake()->numberBetween(1,5),
+            'name' => fake()->name(),
+            'email' => fake()->email(),
         ];
     }
 }
