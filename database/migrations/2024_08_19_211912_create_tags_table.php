@@ -17,11 +17,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Schema::create('post_tags', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->foreignIdFor('')->
-        //     $table->timestamps();
-        // });
+        Schema::create('post_tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->foreignIdFor(App\Models\Post::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(App\Models\Tag::class)->constrained()->cascadeOnDelete();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -30,5 +32,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('tags');
+        Schema::dropIfExists('post_tags');
     }
+   
 };

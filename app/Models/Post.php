@@ -19,4 +19,9 @@ class Post extends Model
     public function renter() {
         return $this->belongsTo(Renter::class);
     }
+
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 }
