@@ -8,7 +8,10 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
-    return view('posts', ['posts' => Post::all()]);
+
+    $posts = Post::simplePaginate(2);
+
+    return view('posts', ['posts' => $posts]);
 });
 
 Route::get('/post/{id}', function ($id) {
