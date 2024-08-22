@@ -14,6 +14,7 @@ class Post extends Model
     protected $fillable = [
         'address',
         'rating',
+        'renter_id',
     ];
 
     public function renter() {

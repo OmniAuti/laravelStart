@@ -1,4 +1,7 @@
 <x-layout>
+    <x-slot:heading>
+        Jobs
+    </x-slot:heading>
     <div>
         @foreach ($posts as $post)
            <div class="post--container">

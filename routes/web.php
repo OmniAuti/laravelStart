@@ -9,9 +9,23 @@ Route::get('/', function () {
 
 Route::get('/posts', function () {
 
-    $posts = Post::simplePaginate(2);
+    $posts = Post::latest()->simplePaginate(3);
 
     return view('posts', ['posts' => $posts]);
+});
+
+Route::get('/create', function () {
+    return view('create');
+});
+
+Route::post('/create', function() {
+
+    Post::create([
+        'address' => request('address'),
+        'rating' => request('rating'),
+        'renter_id' => 11,
+    ]);
+    return redirect('/posts');
 });
 
 Route::get('/post/{id}', function ($id) {
