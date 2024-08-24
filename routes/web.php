@@ -20,6 +20,11 @@ Route::get('/create', function () {
 
 Route::post('/create', function() {
 
+    request()->validate([
+        'address' => ['required', 'min:3'],
+        'rating' => ['required', 'min:1', 'max:4'],
+    ]);
+
     Post::create([
         'address' => request('address'),
         'rating' => request('rating'),
