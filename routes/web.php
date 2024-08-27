@@ -39,6 +39,32 @@ Route::get('/post/{id}', function ($id) {
     return view('single-post', ['post' => $post]);
 });
 
+Route::get('/post/{id}/edit', function ($id) {
+    $post = Post::find($id);
+
+    return view('edit', ['post' => $post]);
+});
+
+Route::patch('/post/{id}', function($id) {
+    $post = Post::findOrFail($id);
+    
+    request()->validate([
+        'address' => ['required', 'min:3'],
+        'rating' => ['required', 'min:1', 'max:4'],
+    ]);
+
+    $post->update([
+        'address' => request('address'),
+        'rating' => request('rating'),
+    ]);
+    return redirect('post/'.$post->id);
+});
+
+Route::delete('/post/{id}', function($id) {
+    $post = Post::findOrFail($id)->delete();
+    return redirect('/posts');
+});
+
 Route::get('/about', function() {
     return view('about');
 });
