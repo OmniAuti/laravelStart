@@ -3,7 +3,7 @@
         Create
     </x-slot:heading>
     <div>
-        <form action="/create" method="post">
+        <form action="/posts" method="post">
             @csrf
             <input type="text" name="address" id="" required>
             @error('address')

@@ -1,9 +1,9 @@
 <x-layout>
     <x-slot:heading>
-        Create
+        Edit
     </x-slot:heading>
     <div>
-        <form action="/post/{{$post->id}}" method="POST">
+        <form action="/posts/{{$post->id}}" method="POST">
             @csrf
             @method('PATCH')
             <input type="text" name="address" id="" required value="{{$post->address}}">
@@ -20,7 +20,7 @@
             DELETE
         </button>
     </div>
-    <form id="delete-form" display="hidden" action="/post/{{$post->id}}" method="POST">
+    <form id="delete-form" display="hidden" action="/posts/{{$post->id}}" method="POST">
         @csrf
         @method('DELETE')
     </form>

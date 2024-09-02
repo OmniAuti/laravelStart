@@ -5,5 +5,5 @@
 <div class="post--container">
     {{$post->address}}
 </div>
-<a href="/post/{{$post->id}}/edit">Edit</a>
+    <a href="/posts/{{$post->id}}/edit">Edit</a>
 </x-layout>
